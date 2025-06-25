@@ -1,24 +1,19 @@
-name: Automatyczne testy
+name: Python Unit Tests
 
-on: push
+on:
+  push:
 
 jobs:
-  testy-python:
+  test:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout kodu
-        uses: actions/checkout@v4
-
-      - name: Skonfiguruj Pythona
-        uses: actions/setup-python@v5
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
         with:
-          python-version: '3.10'
-
-      - name: Instalacja zależności
+          python-version: '3.x'
+      - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-
-      - name: Uruchom testy
+      - name: Run pytest
         run: pytest
