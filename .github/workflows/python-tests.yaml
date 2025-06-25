@@ -8,6 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: 🚩 Pokaż zawartość workflow
+  run: |
+    echo "↪ Uruchamiam: $GITHUB_WORKFLOW"
+    sed -n '1,30p' .github/workflows/python-tests.yml
+
 
       - name: Setup Python
         uses: actions/setup-python@v5
