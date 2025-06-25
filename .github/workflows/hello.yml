@@ -1,13 +1,11 @@
-name: Conditional Workflow
+name: Hello GitHub Actions
 
 on:
   push:
-    paths:
-      - 'src/**'
 
 jobs:
-  conditional-run:
+  say-hello:
     runs-on: ubuntu-latest
     steps:
-      - name: Only when src/ changes
-        run: echo "Katalog src/ się zmienił!"
+      - name: Greet
+        run: echo "Hello, GitHub Actions!"
